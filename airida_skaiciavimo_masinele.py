@@ -8,10 +8,14 @@ e_juosta.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 def spausti_myg(numeris):
     e_juosta.insert(END, numeris)
 
-def lygu ():
-    pasirinktas_sk = eval(e_juosta.get())
-    e_juosta.delete(0, END)
-    e_juosta.insert(0, pasirinktas_sk)
+def lygu():
+    try:
+        pasirinktas_sk = eval(e_juosta.get())
+        e_juosta.delete(0, END)
+        e_juosta.insert(0, pasirinktas_sk)
+    except ZeroDivisionError:
+        e_juosta.delete(0, END)
+        e_juosta.insert(0, "Dalyba iš 0 negalima")
 
 def myg_istrinti():
     e_juosta.delete(0, END)
